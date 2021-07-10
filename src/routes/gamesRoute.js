@@ -3,13 +3,14 @@ const express = require('express');
 const router = express.Router();
 const model = require('../models/gamesModel');
 const Interface = require('../models/interface');
+const validator =  require('../middleware/games.validator');
 const games = new Interface(model);
 
 router.get('/', getGames);
 router.get('/:id', getGames);
-router.post('/', createGames);
-router.put('/:id', updateGames);
-router.delete('/:id', deleteGames);
+router.post('/', validator, createGames);
+router.put('/:id', validator, updateGames);
+router.delete('/:id', validator, deleteGames);
 
 async function getGames(req, res, next){
   try {
