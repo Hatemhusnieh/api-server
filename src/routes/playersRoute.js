@@ -10,7 +10,7 @@ router.get('/', getPlayers);
 router.get('/:id', getPlayers);
 router.post('/', validator, createPlayers);
 router.put('/:id', validator, updatePlayers);
-router.delete('/:id', validator, deletePlayers);
+router.delete('/:id', deletePlayers);
 
 async function getPlayers(req, res, next){
   try {

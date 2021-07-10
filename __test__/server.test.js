@@ -48,8 +48,9 @@ describe('CRUD / games route', () => {
 
   it('DELETE', async () => {
     const res = await mockReq.delete(`/api/v1/games/${id}`);
+    const res2 = await mockReq.get(`/api/v1/games/${id}`);
     expect(res.status).toEqual(200);
-    expect(res.body.length).toEqual[0];
+    expect(res2.body.length).toEqual(0);
   });
 });
 /////////////////////////////////////////////////////////
@@ -87,7 +88,8 @@ describe('CRUD / players route', () => {
 
   it('DELETE', async () => {
     const res = await mockReq.delete(`/api/v1/players/${id}`);
+    const res2 = await mockReq.get(`/api/v1/players/${id}`);
     expect(res.status).toEqual(200);
-    expect(res.body.length).toEqual[0];
+    expect(res2.body.length).toEqual(0);
   });
 });
